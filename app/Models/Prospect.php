@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Prospect extends Model
 {
     use HasFactory;
-    protected $guarded = ['id', 'email', 'tel'];
 
+    protected $guarded = [
+        'id'
+    ];
 }

@@ -9,5 +9,8 @@ class Client extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['id', 'adresse'];
+    protected $guarded = [
+        'id',
+        'adresse'
+    ];
 }
