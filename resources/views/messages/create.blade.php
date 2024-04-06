@@ -6,10 +6,14 @@
 <form class="formMessages" action="{{ route('messages.store') }}" method="POST">
     @csrf
     <div>
-        <label for="email">Email du prospect contacté : </label>
-        <input type="text" name="email" id="email" value="{{ old('email') }}">
-        @if ($errors->has('email'))
-            <p>{{ $errors->first('email')}}</p>
+        <label for="prospect_id">Email du prospect contacté : </label>
+        <select name="prospect_id" id="prospect_id">
+            @foreach ($prospects as $prospect)
+            <option value="{{$prospect->id}}">{{$prospect->email}}</option>
+            @endforEach
+        </select>
+        @if ($errors->has('prospect_id'))
+            <p>{{ $errors->first('prospect_id')}}</p>
         @endif
     </div>
 

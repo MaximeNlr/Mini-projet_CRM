@@ -14,9 +14,12 @@ class MessageController extends Controller
     {
         $prospects = Prospect::all();
         $messages = Message::all();
+
+        
         return view('messages.index', [
             'prospects' => $prospects,
-            'messages' => $messages
+            'messages' => $messages,
+            
         ]);
     }
 
@@ -25,7 +28,10 @@ class MessageController extends Controller
      */
     public function create()
     {
-        return view('messages.create');
+        $prospects = Prospect::all();
+        return view('messages.create', [
+            'prospects' => $prospects
+        ]);
     }
 
     /**
@@ -35,29 +41,27 @@ class MessageController extends Controller
     {
         $validated = $request->validate([
             'typeCommunication' => 'required|string|max:100',
-            'contenu' => 'required|string|min:10'
+            'contenu' => 'required|string|min:10',
+            'prospect_id' => 'required',
         ]);
-
+            
         $message = Message::create($validated);
 
-        return redirect()->back()
+        return redirect()->route('messages.index')
             ->with('Communication enregistré', [
                 'typeCommunication' => $validated['typeCommunication'],
-                'contenu' => $validated['contenu']
+                'contenu' => $validated['contenu'],
+                'prospect_id' => $validated['prospect_id']
             ]);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Message $id)
     {
-        $message = Message::findOrFail($id);
 
-        return view('messages.show', [
-            'message' => $message
-            
-        ]);
+        return view('messages.show');
     }
 
     /**
@@ -65,35 +69,43 @@ class MessageController extends Controller
      */
     public function edit(string $id)
     {
+        $prospects = Prospect::all();
         $message = Message::findOrFail($id);
-
-        return view('message.edit', [
-            "message" => $message
+        return view('messages.edit', [
+            "message" => $message,
+            'prospects' => $prospects
         ]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(Request $request, Message $message)
     {
-        $message = Message::findOrFail($id);
 
         $validated = $request->validate([
             'typeCommunication' => 'required|string|max:100',
-            'contenu' => 'required|string|min:10'
+            'contenu' => 'required|string|min:10',
+            'prospect_id' => 'required',
         ]);
 
-        $message->save();     
+        $message->typeCommunication = $validated['typeCommunication'];
+        $message->contenu = $validated['contenu'];
+        $message->prospect_id = $validated['prospect_id'];
+
+        $message->save();
+
+        return redirect()->route('messages.index')->with('success', 'Votre communication a bien été modifié');
+        
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(string $id)
+    public function destroy(Message $message)
     {
-        $message = Message::findOrFail($id);
         $message->delete();
 
+        return redirect()->route('messages.index')->with('success', 'Votre communication a bien été supprimé.');
     }
 }
