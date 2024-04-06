@@ -25,13 +25,19 @@ table {
 
 th {
     background-color: #F2F3F5;
-    width: 220px;
+    width: 260px;
     padding: 7px;
     text-align: left;
     margin: 0;
 }
 td {
     border-bottom: solid 1px #F2F3F5;
+}
+.tdBtn {
+    display: flex;
+    gap: 6%;
+    margin-left: 19px;
+
 }
 .tdNom {
     color: #506BA5;

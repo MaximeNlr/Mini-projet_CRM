@@ -25,7 +25,7 @@
                         <td>{{$message->prospect->email}}</td>
                         <td>{{$message->prospect->tel}}</td>
                         <td>{{$message->typeCommunication}}</td>
-                        <td>
+                        <td class="tdBtn">
                             <a href="{{ route('messages.show', ['message' => $message->id]) }}"><button class="btn">Détails</button></a>
                             <a href="{{ route('messages.edit', ['message' => $message->id])}}"><input class="btn" type="button" value="Modifier"/></a>
                             <form action="{{ route('messages.destroy', ['message' => $message->id])}}" method='POST'>

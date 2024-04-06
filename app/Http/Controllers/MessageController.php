@@ -58,10 +58,17 @@ class MessageController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(Message $id)
+    public function show(string $id)
     {
+        $prospect = Prospect::all();
+        $message = Message::findOrFail($id);
+        
+       
 
-        return view('messages.show');
+        return view('messages.show', [
+            'message' => $message,
+            'prospect' => $prospect
+        ]);
     }
 
     /**
