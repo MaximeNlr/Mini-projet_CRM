@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+}
+
+table {
+    margin: auto;
+    width: 80%;
+    text-align: center;
+}
+
+table a {
+    text-decoration: none;
+}
+
+th {
+    background-color: #5791EB;
+}
+td {
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.actionTd {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.formContainer {
+    display: flex;
+    margin: auto;
+    width: 80%;
+    gap: 5px;
+}
+
+.formContainer input {
+    width: 100%;
+    height: 20px;
+}
+
+.formContainer select {
+    height: 20px;
+}
+

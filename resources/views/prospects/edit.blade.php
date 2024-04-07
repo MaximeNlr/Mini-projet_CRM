@@ -3,7 +3,8 @@
 @section('title','Modification d\'un prospect')
 
 @section('content')
-    <form action="{{ route('prospects.update') }}" method="post">
+    <form action="{{ route('prospects.update', ['prospect' => $prospect->id]) }}" method="post">
+    @method('PUT')
     @csrf
         <div>
             <label for="nom">Nom :</label>
