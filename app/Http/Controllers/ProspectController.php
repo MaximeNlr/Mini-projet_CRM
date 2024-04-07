@@ -36,9 +36,8 @@ class ProspectController extends Controller
         ]);
         $prospect = Prospect::create($validated);
         
-        return view ('prospects.store',[
-            'prospect' => $prospect
-        ]);
+            return redirect()->back()->with('Le prospect' . $prospect->name . 'est créé');
+        ;
     }
 
     
@@ -46,7 +45,7 @@ class ProspectController extends Controller
     {
         $prospect = Prospect::findOrFail($id);
 
-        return view ('prospect.show', [
+        return view ('prospects.show', [
             'prospect' => $prospect
         ]);
     }
@@ -64,7 +63,7 @@ class ProspectController extends Controller
    
     public function update(Request $request, string $id)
     {
-        $prospect = Prospect::findOrFail();
+        $prospect = Prospect::findOrFail($id);
 
         $validated = $request->validate([
             'nom' => 'required|string|max:155',

@@ -1,6 +1,44 @@
 @extends('layouts.app')
 
 @section('content')
+
+    <button id="toggleForm">Ajouter un nouveau prospect</button>
+
+    <div class="prospectForm" style="display: none;">
+        <form method="post" action="{{route('prospects.store')}}">
+            @csrf
+            <div class="formContainer">
+                    <input type="text" name="nom" value="{{old ('nom') }}" placeholder="Nom" required />
+                        @if($errors->has('nom'))
+                            <p>{{$errors->first('nom')}}</p>
+                        @endif
+                    <input type="text" name="prenom" value="{{old ('prenom') }}" placeholder="Prenom" required />
+                        @if($errors->has('prenom'))
+                            <p>{{$errors->first('prenom')}}</p>
+                        @endif
+                    <input type="email" name="email" value="{{old ('email') }}" placeholder="Email" required />
+                        @if($errors->has('email'))
+                            <p>{{$errors->first('email')}}</p>
+                        @endif
+                    <input type="tel" name="tel" value="{{old ('tel') }}" placeholder="Telephone" required />
+                        @if($errors->has('tel'))
+                            <p>{{$errors->first('tel')}}</p>
+                        @endif
+                    <input type="date" name="dateNaissance" value="{{old ('dateNaissance') }}" placeholder="Date de naissance" required />
+                        @if($errors->has('dateNaissance'))
+                            <p>{{$errors->first('dateNaissance')}}</p>
+                        @endif
+                    <select name="besoin" id="">
+                        <option value="">Besoin</option>
+                        <option value="Vehicule d'occasion">Vehicule d'occasion</option>
+                        <option value="Vehicule neuf">Vehicule neuf</option>
+                        <option value="Vehicule de luxe">Vehicule de luxe</option>
+                        <option value="Vehicule utilitaire">Vehicule</option>
+                    </select>
+                <input type="submit" value="valider"/>
+            </div>
+        </form>
+    </div>
     <table>
         <tr>
             <th>Nom</th>
@@ -20,15 +58,20 @@
                 <td>{{ $prospect->dateNaissance }}</td>
                 <td>{{ $prospect->besoin }}</td>
                 <td>
-                    <a href="{{ route('prospects.show', ['prospect' => $prospect->id]) }}">Voir</a>
-                    <a href="{{ route('prospects.edit', ['prospect' => $prospect->id]) }}">Modifier</a>
-                    <form method="POST" action="{{ route('prospects.destroy', ['prospect' => $prospect->id]) }}">
-                        @csrf
-                        @method('DELETE')
-                        <input type="submit" value="Supprimer"/>
-                    </form>
+                    <div class="actionTd">
+                        <a href="{{ route('prospects.show', ['prospect' => $prospect->id]) }}">📁</a>
+                        <a href="{{ route('prospects.edit', ['prospect' => $prospect->id]) }}">✏️</a>
+                        <form method="POST" action="{{ route('prospects.destroy', ['prospect' => $prospect->id]) }}">
+                            @csrf
+                            @method('DELETE')
+                            <input type="submit" value="🚮"/>
+                        </form>
+                    </div>
                 </td>
             </tr>
         @endforeach
     </table>
+@endsection
+@section('scripts')
+    <script src="{{ asset('js/script.js') }}"></script>
 @endsection
