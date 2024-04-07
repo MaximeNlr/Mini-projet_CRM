@@ -35,7 +35,7 @@
                         <option value="Vehicule de luxe">Vehicule de luxe</option>
                         <option value="Vehicule utilitaire">Vehicule</option>
                     </select>
-                <input type="submit" value="valider"/>
+                <input type="submit" id="validateButton" value="valider"/>
             </div>
         </form>
     </div>
