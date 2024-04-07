@@ -39,7 +39,7 @@
             </div>
         </form>
     </div>
-    <table>
+    <table id="prospectsTable">
         <tr>
             <th>Nom</th>
             <th>Prenom</th>
@@ -50,7 +50,7 @@
             <th>Action</th>
         </tr>
         @foreach ($prospects as $prospect)
-            <tr>
+            <tr class="editableRow">
                 <td>{{ $prospect->nom }}</td>
                 <td>{{ $prospect->prenom }}</td>
                 <td>{{ $prospect->email }}</td>
@@ -60,7 +60,7 @@
                 <td>
                     <div class="actionTd">
                         <a href="{{ route('prospects.show', ['prospect' => $prospect->id]) }}">📁</a>
-                        <a href="{{ route('prospects.edit', ['prospect' => $prospect->id]) }}">✏️</a>
+                        <button class="editButton" data-id="{{ $prospect->id }}">✏️</button>
                         <form method="POST" action="{{ route('prospects.destroy', ['prospect' => $prospect->id]) }}">
                             @csrf
                             @method('DELETE')
