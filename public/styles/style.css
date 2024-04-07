@@ -15,12 +15,20 @@ header {
 .containerContent {
     background-color: #FFFFFF;
     margin-top: 45px;
-    height: 80vh;
+    height: 85vh;
 }
-
+.containerTbaleBtn {
+    overflow: auto;
+    height: 400px;
+}
+.containerTable {
+    overflow: auto;
+    max-height: 400px;
+}
 
 table {
     padding-top: 20px;
+    overflow: auto;
 }
 
 th {
@@ -53,8 +61,9 @@ td {
     border: #5791EB;
     height: 30px;
     font-weight: bold;
-    
-    
+}
+.btn:hover {
+    background-color: #0056b3;
 }
 .containerBtn {
     display: flex;
@@ -62,6 +71,7 @@ td {
     justify-content: end;
     padding-top: 80px;
     padding-right: 20px;
+    height: 50px;
     
 }
 .btnNewPost {
@@ -72,4 +82,7 @@ td {
     padding: 8px;
     width: 90px;
     font-weight: bold;
+}
+.btn:hover {
+    background-color: #0056b3;
 }

@@ -2,10 +2,11 @@
 
 
 @section('content')
-    <section class="containerTableBtn"></section>
-        <div class="containerBtn">
-            <a href="{{ route('messages.create')}}"><input type="button" value="+ Nouveau" class="btnNewPost"></a>
-        </div>
+<div class="containerBtn">
+    <a href="{{ route('messages.create')}}"><input type="button" value="+ Nouveau" class="btnNewPost"></a>
+</div>
+    <section class="containerTableBtn">
+        
             <div class="containerTable">
                 <table>
                     <tr>
