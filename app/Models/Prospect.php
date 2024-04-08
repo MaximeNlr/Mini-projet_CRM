@@ -8,6 +8,11 @@ use Illuminate\Database\Eloquent\Model;
 class Prospect extends Model
 {
     use HasFactory;
-    protected $guarded = ['id', 'email', 'tel'];
 
+    protected $guarded = ['adresse', 'delai_paiement', 'prospect_id'];
+
+    public function prospect()
+    {
+        return $this->belongsTo(Prospect::class);
+    }
 }

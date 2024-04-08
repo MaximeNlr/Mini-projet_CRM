@@ -14,6 +14,10 @@ return new class extends Migration
         Schema::create('ventes', function (Blueprint $table) {
             $table->id();
             $table->decimal('prixHT', 8, 2);
+            $table->decimal('tva', 5, 2);
+            $table->string('titre');
+            $table->text('description');
+            $table->foreignId('client_id')->constrained();
             $table->timestamps();
         });
     }

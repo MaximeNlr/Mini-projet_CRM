@@ -5,9 +5,14 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Client extends Model
+class client extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['id', 'adresse'];
+    protected $fillable = ['email', 'tel'];
+
+    public function clients()
+    {
+        return $this->hasMany(Client::class);
+    }
 }
