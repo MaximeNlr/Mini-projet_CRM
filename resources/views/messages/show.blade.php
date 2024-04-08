@@ -1,45 +1,4 @@
-
-
-    {{-- <div>
-        <h4>Informations générales</h4>
-        <p>Catégorie</p> 
-        <p>{{$message->typeCommunication}}</p>
-        <p>Date de création</p>
-        <p>{{$message->updated_at}}</p>
-        <p>Date de modification</p>
-        {{$message->updated_at}}
-    </div>
-    
-    <div>
-        <h4>Déscription</h4>
-        <p>{{$message->contenu}}</p>
-    </div>
-
-    <div>
-        <h4>Prospect</h4>
-        <p>Nom</p>
-        <p>{{ $message->prospect->nom }}</p>
-        <p>Prénom</p>
-        <p>{{ $message->prospect->prenom }}</p>
-        <p>Email</p>
-        <p>{{$message->prospect->email}}</p>
-        <p>Téléphone</p>
-        <p>{{$message->prospect->tel}}</p>
-    </div>
-    
-    <div>
-        <a href="{{ route('messages.edit', ['message' => $message->id])}}"><input class="btn" type="button" value="Modifier"/></a>
-        <form action="{{ route('messages.destroy', ['message' => $message->id])}}" method='POST'>
-        @csrf
-        @method('DELETE') 
-        <input class="btn" type="submit" value="Supprimer"/></form>
-    </div> --}}
-
-
-
-
-
-    @extends('layouts.app')
+ @extends('layouts.app')
 
     @section('content')
 
@@ -151,6 +110,8 @@
             justify-content: flex-end;
             margin-right: 5px;
         }
+
+        
     </style>
 
 

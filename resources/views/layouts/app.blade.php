@@ -8,8 +8,11 @@
     <link rel="stylesheet" href="{{asset('styles/style.css')}}">
 </head>
 <body>
-    <header></header>
-    <nav></nav>
+    <header>
+        <div class="containerLogo">
+            <img class="logo" src="/logo/logoTest.png" alt="">
+        </div>
+    </header>
     <section class="containerContent">
         @yield('content')
     </section>

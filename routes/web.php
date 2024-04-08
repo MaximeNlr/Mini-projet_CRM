@@ -13,4 +13,4 @@ Route::get('/', function () {
 Route::resource('/prospects', ProspectController::class);
 Route::resource('/ventes',  VenteController::class);
 Route::resource('/messages',  MessageController::class);
-Route::resource('/client',  ClientController::class);
+Route::resource('/clients',  ClientController::class);

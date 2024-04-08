@@ -10,7 +10,16 @@ body {
 header {
     background-color: #10223C;
     width: 100%;
-    height: 70px;
+    height: 90px;
+}
+.containerLogo {
+    width: 100%;
+}
+.logo {
+    height: 108px;
+    position: relative;
+    bottom: 7px;
+    left: 9px;
 }
 .containerContent {
     background-color: #FFFFFF;
@@ -89,3 +98,6 @@ td {
 .btn:hover {
     background-color: #0056b3;
 }
+
+
+

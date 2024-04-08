@@ -15,4 +15,14 @@ class Prospect extends Model
     {
         return $this->has (Message::class, 'prospect_id');
     }
+
+    public function client()
+    {
+        return $this->has (Client::class, 'client_id');
+    }
+
+    public function vente()
+    {
+        return $this->belongsTo (Vente::class, 'vente_id');
+    }
 }

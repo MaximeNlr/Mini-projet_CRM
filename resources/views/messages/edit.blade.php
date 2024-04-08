@@ -10,7 +10,7 @@
         <label for="prospect_id">Email du prospect contacté : </label>
         <select name="prospect_id" id="prospect_id">
             @foreach ($prospects as $prospect)
-            <option value="{{ old('id') ?? $prospect->id }}">{{ old('email') ?? $prospect->email }}</option>
+            <option value="{{ $prospect->id }}" selected>{{ old('email') ?? $prospect->email }}</option>
             @endforEach
         </select>
         @if ($errors->has('prospect_id'))
