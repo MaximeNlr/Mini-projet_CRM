@@ -1,0 +1,164 @@
+.containerBtn {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    padding-top: 20px;
+    padding-right: 20px;
+    height: 50px;
+    
+}
+
+.actionTd {
+    display: flex;
+    gap: 10px;
+}
+
+.formContainer {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+
+#toggleForm {
+    padding: 5px 10px;
+    border: none;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    height: 30px;
+    font-weight: bold;
+}
+
+#toggleForm:hover {
+    background-color: #0056b3;
+}
+
+.prospectContainer {
+    padding: 50px;
+}
+
+.detailsHeader {
+    display: flex;
+    justify-content: space-between;
+}
+
+.prospectContainer h1 {
+    text-align: center;
+}
+
+#navigateButton {
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.buttonContainer {
+    display: flex;
+    gap: 10px;
+}
+
+.prospectDetails {
+    display: flex;
+    flex-direction: column;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.prospectDetails h1 {
+    font-size: 24px;
+    margin-bottom: 20px;
+}
+
+.prospectDetails ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.liInputsContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.prospectDetails ul li {
+    margin-bottom: 10px;
+}
+
+.prospectDetails ul li strong {
+    font-weight: bold;
+}
+
+.detailsButtons {
+    border: none;
+    padding: 5px 10px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.detailsButtons:hover {
+    background-color: #0056b3;
+}
+
+.editForm {
+    margin: 30px 10px;
+}
+
+#validateEditButton {
+    display: block;
+    border: none;
+    margin: 10px auto;
+    width: 10%;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+.inputsContainer {
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    background-color: white;
+    padding: 50px;
+    gap: 5px;
+}
+
+.messageFormContainer {
+    display: flex;
+    flex-direction: column;
+    margin: 30px 10px;
+    text-align: center;
+}
+
+.messageFormContainer input {
+    border: none;
+    margin: 10px auto;
+    width: 10%;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+
+}
+
+.messageFormContainer textarea {
+    width: 90%;
+    height: 200px;
+    margin: auto;
+}
