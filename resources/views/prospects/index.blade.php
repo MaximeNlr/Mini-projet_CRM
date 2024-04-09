@@ -1,9 +1,10 @@
 @extends('layouts.app')
-
+@section('newProspect')
+@endsection
 @section('content')
-
+<div class="containerBtn">
     <button id="toggleForm">Ajouter un nouveau prospect</button>
-
+</div>
     <div class="prospectForm" style="display: none;">
         <form method="post" action="{{route('prospects.store')}}">
             @csrf
@@ -59,12 +60,11 @@
                 <td>{{ $prospect->besoin }}</td>
                 <td>
                     <div class="actionTd">
-                        <a href="{{ route('prospects.show', ['prospect' => $prospect->id]) }}">📁</a>
-                        <button class="editButton" data-id="{{ $prospect->id }}">✏️</button>
-                        <form method="POST" action="{{ route('prospects.destroy', ['prospect' => $prospect->id]) }}">
+                        <a href="{{route('prospects.show', ['prospect' => $prospect->id ])}}" class="detailsButtons">detail</a>
+                        <form method="POST"  action="{{ route('prospects.destroy', ['prospect' => $prospect->id]) }}">
                             @csrf
                             @method('DELETE')
-                            <input type="submit" value="🚮"/>
+                            <input type="submit" id="deleteButton" class="detailsButtons" value="supprimer"/>
                         </form>
                     </div>
                 </td>

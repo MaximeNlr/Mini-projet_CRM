@@ -83,7 +83,7 @@ class ProspectController extends Controller
 
         $prospect->save();
 
-        return view ('prospects.update', [
+        return view ('prospects.show', [
             'prospect' => $prospect
         ]);
 
