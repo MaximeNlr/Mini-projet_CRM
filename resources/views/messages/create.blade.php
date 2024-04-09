@@ -1,8 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-
-<h2><u>Création d'une communication</u></h2>
 <form class="formMessages" action="{{ route('messages.store') }}" method="POST">
     @csrf
     <div>
@@ -37,7 +35,7 @@
             <p>{{ $errors->first('contenu')}}</p>
         @endif
     </div>
-    <input type="submit" value="Sauvegarder">
+    <input type="submit" value="Sauvegarder" class="btn">
 </form>
     
 @endsection

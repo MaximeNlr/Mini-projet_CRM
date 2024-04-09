@@ -2,7 +2,6 @@
 
 @section('content')
 
-<h2><u>Modification d'une communication</u></h2>
 <form class="formMessages" action="{{ route('messages.update', ['message' => $message->id]) }}" method="POST">
     @method('PUT')
     @csrf
@@ -38,7 +37,7 @@
             <p>{{ $errors->first('contenu')}}</p>
         @endif
     </div>
-    <input type="submit" value="Modifier">
+    <input type="submit" class="btn" value="Modifier">
 </form>
     
 @endsection
