@@ -1,9 +1,10 @@
 @extends('layouts.app')
-
+@section('newProspect')
+@endsection
 @section('content')
-
+<div class="containerBtn">
     <button id="toggleForm">Ajouter un nouveau prospect</button>
-
+</div>
     <div class="prospectForm" style="display: none;">
         <form method="post" action="{{route('prospects.store')}}">
             @csrf
@@ -35,11 +36,11 @@
                         <option value="Vehicule de luxe">Vehicule de luxe</option>
                         <option value="Vehicule utilitaire">Vehicule</option>
                     </select>
-                <input type="submit" value="valider"/>
+                <input type="submit" id="validateButton" value="valider"/>
             </div>
         </form>
     </div>
-    <table>
+    <table id="prospectsTable">
         <tr>
             <th>Nom</th>
             <th>Prenom</th>
@@ -50,7 +51,7 @@
             <th>Action</th>
         </tr>
         @foreach ($prospects as $prospect)
-            <tr>
+            <tr class="editableRow">
                 <td>{{ $prospect->nom }}</td>
                 <td>{{ $prospect->prenom }}</td>
                 <td>{{ $prospect->email }}</td>
@@ -59,12 +60,11 @@
                 <td>{{ $prospect->besoin }}</td>
                 <td>
                     <div class="actionTd">
-                        <a href="{{ route('prospects.show', ['prospect' => $prospect->id]) }}">📁</a>
-                        <a href="{{ route('prospects.edit', ['prospect' => $prospect->id]) }}">✏️</a>
-                        <form method="POST" action="{{ route('prospects.destroy', ['prospect' => $prospect->id]) }}">
+                        <a href="{{route('prospects.show', ['prospect' => $prospect->id ])}}" class="detailsButtons">detail</a>
+                        <form method="POST"  action="{{ route('prospects.destroy', ['prospect' => $prospect->id]) }}">
                             @csrf
                             @method('DELETE')
-                            <input type="submit" value="🚮"/>
+                            <input type="submit" id="deleteButton" class="detailsButtons" value="supprimer"/>
                         </form>
                     </div>
                 </td>
