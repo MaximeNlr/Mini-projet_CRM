@@ -8,10 +8,33 @@
   
   
   header {
-      background-color: #10223C;
-      width: 100%;
-      height: 70px;
-  }
+    background-color: #333333;
+    color: #ffffff;
+    padding: 5px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed; 
+    width: 100%;
+    top: 0; 
+    left: 0;
+    z-index: 1000; 
+    -webkit-box-shadow: 0px 17px 14px -12px rgba(66, 68, 90, 1);
+    -moz-box-shadow: 0px 17px 14px -12px rgba(66, 68, 90, 1);
+    box-shadow: 0px 17px 14px -12px rgba(66, 68, 90, 1);
+    border-bottom: solid 1px  #FFD700;
+}
+
+body {
+    background-color: #1a1a1a;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    margin-top: 90px;
+    padding: 0;
+
+}
+
+
   .containerContent {
       background-color: #FFFFFF;
       margin-top: 45px;
@@ -20,7 +43,10 @@
   
   
   table {
-      padding-top: 20px;
+    padding-top: 20px;
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
   }
   
   th {
@@ -29,9 +55,10 @@
       padding: 7px;
       text-align: left;
       margin: 0;
+      border: 1px solid #ffffff;
   }
   td {
-      border-bottom: solid 1px #F2F3F5;
+      border-bottom: solid 1px #101e39;
   }
   .tdNom {
       color: #506BA5;
@@ -67,3 +94,43 @@
       width: 90px;
       font-weight: bold;
   }
+
+  nav {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #333333;
+    color: #ffffff;
+    padding: 10px 20px; /* Ajoutez un padding pour l'espace autour des éléments */
+}
+
+.search-bar {
+    flex-grow: 1; /* Permet à la barre de recherche de prendre autant d'espace que possible */
+}
+
+.search-input {
+    width: 40%; /* Pour remplir tout l'espace disponible */
+    padding: 8px; /* Ajoutez un padding pour l'espace à l'intérieur de la barre de recherche */
+    border: none;
+    border-radius: 5px;
+    background-color: #ffffff; /* Couleur de fond de la barre de recherche */
+}
+
+.btnNewPost {
+    background-color: #ffffff; /* Couleur de fond du bouton */
+    color: #333333; /* Couleur du texte du bouton */
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+a {
+    color: #ffffff;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #cccccc;
+}

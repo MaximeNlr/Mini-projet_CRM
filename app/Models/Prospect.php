@@ -9,10 +9,15 @@ class Prospect extends Model
 {
     use HasFactory;
 
-    protected $guarded = ['adresse', 'delai_paiement', 'prospect_id'];
+    protected $guarded = ['id'];
 
-    public function prospect()
+    public function message()
     {
-        return $this->belongsTo(Prospect::class);
+        return $this->has (Message::class, 'prospect_id');
+    }
+
+    public function client()
+    {
+        return $this->has (Client::class, 'client_id');
     }
 }

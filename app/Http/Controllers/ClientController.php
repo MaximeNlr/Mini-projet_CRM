@@ -13,30 +13,24 @@ class ClientController extends Controller
     public function index()
     {
         $clients = Client::all();
+        $prospects = Prospect::all();
 
         return view('clients.index', [
             'clients' => $clients,
+            'prospects' => $prospects
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    // public function create($prospectId)
-    // {
-    //     $prospect = Prospect::find($prospectId);
-
-    //     $delaiPaiementDefault = 30;
-
-    //     return view('clients.create', compact('prospect', 'delaiPaiementDefault'));
-    // }
-
-    public function createWithProspect($prospectId)
+    public function create()
 {
-    $prospect = Prospect::find($prospectId);
+    $prospects = Prospect::all();
+
     $delaiPaiementDefault = 30;
 
-    return view('clients.show', compact('prospect', 'delaiPaiementDefault'));
+    return view('clients.create', [
+        'prospects' => $prospects,
+         'delaiPaiementDefault' => $delaiPaiementDefault
+        ]);
 }
 
     /**
@@ -46,36 +40,38 @@ class ClientController extends Controller
     {
         $validated = $request->validate([
             'adresse' => 'required|string|min:5|max:255',
-            'delai_paiement' => 'required|numeric|default:30'
+            'delaisPaiement' => 'required|numeric',
+            'prospect_id' => 'required'
         ]);
+        
         $client = Client::create($validated);
 
-        return view ('clients.store',[
-            'client' => $client 
+        return view ('clients.index',[
+            'client' => $client,
+            'adresse' => $validated['adresse'],
+            'delaisPaiement' => $validated['delaisPaiement'],
+            'prospect_id' => $validated['prospect_id']
         ]);
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
-    {
-        $client = Client::findOrFail($id);
+{
+    $client = Client::findOrFail($id);
 
-        return view ('clients.show', [
-            'clients' => $client
-        ]);
-    }
+    return view ('clients.show', [
+        'client' => $client,
+    ]);
+}
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+
     public function edit(string $id)
     {
         $client = Client::findOrFail($id);
+        $prospects = Prospect::all();
 
         return view ('clients.edit', [
-            'client' => $client
+            'client' => $client,
+            'prospects' => $prospects
         ]);
     }
 
@@ -87,30 +83,25 @@ class ClientController extends Controller
         $client = Client::findOrFail($id);
 
         $validated = $request->validate([
-
             'adresse' => 'required|string|min:5|max:255',
-            'delai_paiement' => 'required|numeric|default:30'
+            'delaisPaiement' => 'required|numeric',
+            'prospect_id' => 'required'
         ]);
+        
 
         $client->adresse = $validated['adresse'];
-        $client->delai_paiement = $validated['delai_paiement'];
+        $client->delaisPaiement = $validated['delaisPaiement'];
 
         $client->save();
 
-        return view('clients.update', [
-            'client' => $client
-        ]);
+        return redirect()->route('clients.index')->with('success', 'Votre client a bien été modifié');
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function destroy(Client $client)
     {
-        $client = Client::findOrFail($id);
         $client->delete();
 
-        return view ('client.destroy');
+        return redirect()->route('clients.index')->with('success', 'Votre client a bien été supprimé.');
     }
 }

@@ -9,10 +9,18 @@ class client extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['email', 'tel'];
+    protected $guarded = ['id'];
 
-    public function clients()
+    public function prospect()
     {
-        return $this->hasMany(Client::class);
+        return $this->belongsTo (Prospect::class, 'prospect_id');
     }
+
+    public function vente()
+{
+    return $this->belongsTo(Vente::class, 'vente_id');
+}
+
+    
+    
 }

@@ -16,8 +16,8 @@
                 <h1>CRM VIP ENCHERES</h1>
             </div>
             <div class="header-right">
-                {{-- <a href="{{ route('client.index')}}">Liste des Clients</a>
-                <a href="{{ route('client.create') }}">Crée un nouveau Client</a> --}}
+                <a href="{{ route('clients.index')}}">Liste des Clients</a>
+                <a href="{{ route('clients.create') }}">Crée un nouveau Client</a>
             </div>
         </header>
         
