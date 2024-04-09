@@ -15,6 +15,11 @@ class Vente extends Model
     {
         return $this->belongsTo (Client::class, 'client_id');
     }
+
+    public function clients()
+    {
+        return $this->has (Client::class, 'client_id');
+    }
     
     public function prospect()
     {

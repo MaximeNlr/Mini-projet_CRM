@@ -99,5 +99,21 @@ td {
     background-color: #0056b3;
 }
 
+/* Style Création/ modification de la page MESSAGE */
+.formMessages {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    justify-content: center;
+}
+.containerCreate {
+    display: flex;
+    width: 80vh;
+    height: 80vh;
+    flex-direction: column;
+}
 
+.containerEmail {
+    
+}
 

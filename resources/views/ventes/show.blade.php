@@ -4,7 +4,6 @@
 
     <title>Vente détails</title>
     <style>
-    
         h3 {
             color: #506BA5;
             

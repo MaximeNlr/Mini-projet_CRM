@@ -18,6 +18,7 @@ class client extends Model
 
     public function vente()
     {
-        return $this->has (Vente::class, 'vente_id');
+        return $this->hasMany(Vente::class);
     }
+    
 }

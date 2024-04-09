@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 use App\Models\Client;
 use Illuminate\Http\Request;
+use app\Models\Vente;
 use App\Models\Prospect;
 
 class ClientController extends Controller
@@ -54,28 +55,26 @@ class ClientController extends Controller
         ]);
     }
 
-    /**
-     * Display the specified resource.
-     */
     public function show(string $id)
     {
         $client = Client::findOrFail($id);
+        $prospect = Prospect::all();
 
         return view ('clients.show', [
-            'clients' => $client,
-            
+            'client' => $client,
+            'prospect' => $prospect
         ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+
     public function edit(string $id)
     {
         $client = Client::findOrFail($id);
+        $prospects = Prospect::all();
 
         return view ('clients.edit', [
-            'client' => $client
+            'client' => $client,
+            'prospects' => $prospects
         ]);
     }
 
@@ -87,30 +86,27 @@ class ClientController extends Controller
         $client = Client::findOrFail($id);
 
         $validated = $request->validate([
-
             'adresse' => 'required|string|min:5|max:255',
-            'delai_paiement' => 'required|numeric|default:30'
+            'delaisPaiement' => 'required|numeric',
+            'prospect_id' => 'required'
         ]);
+        
 
         $client->adresse = $validated['adresse'];
-        $client->delai_paiement = $validated['delai_paiement'];
+        $client->delaisPaiement = $validated['delaisPaiement'];
 
         $client->save();
 
-        return view('clients.update', [
-            'client' => $client
-        ]);
+        return redirect()->route('clients.index')->with('success', 'Votre client a bien été modifié');
 
     }
 
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy(string $id)
+    public function destroy(Client $client)
     {
-        $client = Client::findOrFail($id);
+        $client->vente()->delete();
+
         $client->delete();
 
-        return view ('client.destroy');
+        return redirect()->route('clients.index')->with('success', 'Votre client a bien été supprimé.');
     }
 }

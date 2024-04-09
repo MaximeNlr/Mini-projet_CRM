@@ -15,11 +15,12 @@ class MessageController extends Controller
         $prospects = Prospect::all();
         $messages = Message::all();
 
+        $messages = Message::paginate(20);
+
         
         return view('messages.index', [
             'prospects' => $prospects,
             'messages' => $messages,
-            
         ]);
     }
 
@@ -55,25 +56,19 @@ class MessageController extends Controller
             ]);
     }
 
-    /**
-     * Display the specified resource.
-     */
+   
     public function show(string $id)
     {
         $prospect = Prospect::all();
         $message = Message::findOrFail($id);
         
-       
-
         return view('messages.show', [
             'message' => $message,
             'prospect' => $prospect
         ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     */
+
     public function edit(string $id)
     {
         $prospects = Prospect::all();

@@ -13,7 +13,7 @@ class Prospect extends Model
 
     public function message()
     {
-        return $this->has (Message::class, 'prospect_id');
+        return $this->hasMany (Message::class);
     }
 
     public function client()

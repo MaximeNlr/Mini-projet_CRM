@@ -37,5 +37,6 @@
                     </tr>
                     @endforEach
                 </table>
+                {{ $messages->links() }}
             </div>
 @endsection
