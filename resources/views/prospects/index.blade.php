@@ -13,7 +13,7 @@
                         @if($errors->has('nom'))
                             <p>{{$errors->first('nom')}}</p>
                         @endif
-                    <input type="text" name="prenom" value="{{old ('prenom') }}" placeholder="Prenom" required />
+                    <input type="text" name="prenom" value="{{old ('prenom') }}" placeholder="Prénom" required />
                         @if($errors->has('prenom'))
                             <p>{{$errors->first('prenom')}}</p>
                         @endif
@@ -21,7 +21,7 @@
                         @if($errors->has('email'))
                             <p>{{$errors->first('email')}}</p>
                         @endif
-                    <input type="tel" name="tel" value="{{old ('tel') }}" placeholder="Telephone" required />
+                    <input type="tel" name="tel" value="{{old ('tel') }}" placeholder="Téléphone" required />
                         @if($errors->has('tel'))
                             <p>{{$errors->first('tel')}}</p>
                         @endif
@@ -43,12 +43,12 @@
     <table id="prospectsTable">
         <tr>
             <th>Nom</th>
-            <th>Prenom</th>
+            <th>Prénom</th>
             <th>Email</th>
-            <th>Tel</th>
+            <th>Téléphone</th>
             <th>Date de naissance</th>
             <th>Besoin</th>
-            <th>Action</th>
+            <th id="actionTh">Action</th>
         </tr>
         @foreach ($prospects as $prospect)
             <tr class="editableRow">
@@ -60,11 +60,11 @@
                 <td>{{ $prospect->besoin }}</td>
                 <td>
                     <div class="actionTd">
-                        <a href="{{route('prospects.show', ['prospect' => $prospect->id ])}}" class="detailsButtons">detail</a>
+                        <a href="{{route('prospects.show', ['prospect' => $prospect->id ])}}" class="btn">Detail</a>
                         <form method="POST"  action="{{ route('prospects.destroy', ['prospect' => $prospect->id]) }}">
                             @csrf
                             @method('DELETE')
-                            <input type="submit" id="deleteButton" class="detailsButtons" value="supprimer"/>
+                            <input type="submit" id="deleteButton" class="btn" value="Supprimer"/>
                         </form>
                     </div>
                 </td>

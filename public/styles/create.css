@@ -1,0 +1,33 @@
+.formMessages {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 50px;
+}
+
+.formMessages label {
+    font-weight: bold;
+}
+
+.formMessages select,
+.formMessages textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.formMessages textarea {
+    height: 200px;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+}

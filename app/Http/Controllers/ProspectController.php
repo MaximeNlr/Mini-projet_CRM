@@ -89,15 +89,18 @@ class ProspectController extends Controller
 
     }
 
-   
     public function destroy(string $id)
     {
         $prospect = Prospect::findOrFail($id);
+        $prospect->message()->delete();
         $prospect->delete();
+        $prospect->delete();
+        
         $prospects = Prospect::all();
         return view ('prospects.index', [
             'prospects' => $prospects
         ]);
+        
 
     }
 }

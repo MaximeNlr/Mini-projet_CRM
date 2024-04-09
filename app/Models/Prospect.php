@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -25,4 +24,10 @@ class Prospect extends Model
     {
         return $this->belongsTo (Vente::class, 'vente_id');
     }
+
+    public function client()
+    {
+        return $this->has (Prospect::class, 'prospect_id');
+    }
+
 }
