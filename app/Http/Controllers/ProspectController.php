@@ -36,9 +36,8 @@ class ProspectController extends Controller
         ]);
         $prospect = Prospect::create($validated);
         
-        return view ('prospects.store',[
-            'prospect' => $prospect
-        ]);
+            return redirect()->back()->with('Le prospect' . $prospect->name . 'est créé');
+        ;
     }
 
     
@@ -84,19 +83,24 @@ class ProspectController extends Controller
 
         $prospect->save();
 
-        return view ('prospects.update', [
+        return view ('prospects.show', [
             'prospect' => $prospect
         ]);
 
     }
 
-   
     public function destroy(string $id)
     {
         $prospect = Prospect::findOrFail($id);
+        $prospect->message()->delete();
         $prospect->delete();
-
-        return view ('prospects.destroy');
+        $prospect->delete();
+        
+        $prospects = Prospect::all();
+        return view ('prospects.index', [
+            'prospects' => $prospects
+        ]);
+        
 
     }
 }

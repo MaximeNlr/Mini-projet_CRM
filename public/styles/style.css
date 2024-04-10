@@ -1,136 +1,178 @@
 * {
-    margin: 0;
-  }
-  
-  body {
-      background-color: #F2F3F5;
-  }
-  
-  
-  header {
-    background-color: #333333;
-    color: #ffffff;
-    padding: 5px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: fixed; 
-    width: 100%;
-    top: 0; 
-    left: 0;
-    z-index: 1000; 
-    -webkit-box-shadow: 0px 17px 14px -12px rgba(66, 68, 90, 1);
-    -moz-box-shadow: 0px 17px 14px -12px rgba(66, 68, 90, 1);
-    box-shadow: 0px 17px 14px -12px rgba(66, 68, 90, 1);
-    border-bottom: solid 1px  #FFD700;
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+     margin: 0;
 }
 
 body {
-    background-color: #1a1a1a;
-    color: #ffffff;
-    font-family: Arial, sans-serif;
-    margin-top: 90px;
-    padding: 0;
+    background-color: #F2F3F5;
+}
 
+header {
+    display: flex;
+    justify-content: space-between;
+    background-color: #10223C;
+    width: 100%;
+    height: 70px;
+}
+
+header img {
+    width: 5%;
+}
+
+.headerContainer {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-right: 50px;
+}
+
+.headerContainer a {
+    padding: 5px 12px;
+    background-color: white;
+    color: #000000;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+    height: 20px;
+    font-weight: bold;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.headerContainer a:hover {
+    background-color: #0056b3;
+}
+
+.containerBtn {
+    margin-bottom: 20px;
+}
+
+.btnNewPost {
+    background-color: #007bff;
+    color: white;
+    padding: 5px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    text-decoration: none;
+}
+
+.btnNewPost:hover {
+    background-color: #0056b3;
+}
+
+.containerTableBtn {
+    margin: 0 auto;
+    width: 90%;
+}
+
+.containerTable {
+    overflow-x: auto;
+}
+
+.containerTable table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+#actionTh {
+    width: 100px;
+}
+
+.actionTd {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.containerTable th,
+.containerTable td {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.containerTable th {
+    background-color: #0056b3;
+}
+
+.containerTable tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.containerTable tr:hover {
+    background-color: #ddd;
+}
+
+.tdNom,
+.tdPrenom {
+    font-weight: bold;
+}
+
+.btn {
+    background-color: #007bff;
+    color: white;
+    padding: 5px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.btns {
+    background-color: #ff3300;
+    color: white;
+    padding: 5px 12px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    border-radius: 4px;
+    cursor: pointer;
 }
 
 
-  .containerContent {
-      background-color: #FFFFFF;
-      margin-top: 45px;
-      height: 80vh;
-  }
-  
-  
-  table {
-    padding-top: 20px;
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  
-  th {
-      background-color: #F2F3F5;
-      width: 220px;
-      padding: 7px;
-      text-align: left;
-      margin: 0;
-      border: 1px solid #ffffff;
-  }
-  td {
-      border-bottom: solid 1px #101e39;
-  }
-  .tdNom {
-      color: #506BA5;
-  }
-  .tdPrenom {
-      color: #506BA5;
-  }
-  
-  .btn {
-      background-color: #5791EB;
-      color: white;
-      border-radius: 10px;
-      border: #5791EB;
-      height: 30px;
-      font-weight: bold;
-  
-  
-  }
-  .containerBtn {
-      display: flex;
-      flex-direction: row;
-      justify-content: end;
-      padding-top: 80px;
-      padding-right: 20px;
-  
-  }
-  .btnNewPost {
-      background-color: #5791EB;
-      color: white;
-      border-radius: 10px;
-      border: #5791EB;
-      padding: 8px;
-      width: 90px;
-      font-weight: bold;
-  }
+.btn:hover {
+    background-color: #0056b3;
+}
 
-  nav {
-    position: relative;
+#deleteButton {
+    background-color: #f44336;
+}
+
+#deleteButton:hover {
+    background-color: #da190b;
+}
+
+nav {
+    border-top: #000000 solid 2px;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #333333;
+    background-color: #10223C;
     color: #ffffff;
-    padding: 10px 20px; /* Ajoutez un padding pour l'espace autour des éléments */
+    padding: 10px 20px; 
 }
 
 .search-bar {
-    flex-grow: 1; /* Permet à la barre de recherche de prendre autant d'espace que possible */
+    flex-grow: 1; 
 }
 
 .search-input {
-    width: 40%; /* Pour remplir tout l'espace disponible */
-    padding: 8px; /* Ajoutez un padding pour l'espace à l'intérieur de la barre de recherche */
-    border: none;
+    width: 40%; 
+    padding: 8px; 
     border-radius: 5px;
-    background-color: #ffffff; /* Couleur de fond de la barre de recherche */
+    background-color: #ffffff; 
 }
 
 .btnNewPost {
     background-color: #ffffff; /* Couleur de fond du bouton */
-    color: #333333; /* Couleur du texte du bouton */
+    color: #10223C; /* Couleur du texte du bouton */
     border: none;
     padding: 10px 20px;
     border-radius: 5px;
     cursor: pointer;
-}
-
-a {
-    color: #ffffff;
-    text-decoration: none;
-}
-
-a:hover {
-    color: #cccccc;
 }
