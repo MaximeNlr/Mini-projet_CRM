@@ -3,7 +3,7 @@
 
 @section('content')
 <div class="containerBtn">
-    <a href="{{ route('messages.create')}}"><input type="button" value="+ Nouveau" class="btnNewPost"></a>
+    <a href="{{ route('messages.create')}}" class="btnNewPost">+ Nouveau message</a>
 </div>
     <section class="containerTableBtn">
         <div class="containerTable">
@@ -27,7 +27,7 @@
                     <td>{{$message->typeCommunication}}</td>
                     <td>
                         <div class="actionTd">
-                            <a href="{{ route('messages.show', ['message' => $message->id]) }}" class="btn">Details</a>
+                            <a href="{{ route('messages.show', ['message' => $message->id]) }}" class="btn">detail</a>
                             <form action="{{ route('messages.destroy', ['message' => $message->id])}}" method='POST'>
                             @csrf
                             @method('DELETE') 

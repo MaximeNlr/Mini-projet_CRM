@@ -17,7 +17,7 @@
         </div>
         <h1>Détails du Prospect</h1>
         <ul>
-            <div class="inputsContainer">
+            <div class="liContainer">
                 <div class="liInputsContainer">
                     <li><strong>Nom:</strong> {{ $prospect->nom }}</li>
                     <li><strong>Prénom:</strong> {{ $prospect->prenom }}</li>
@@ -29,6 +29,7 @@
                     <li><strong>Besoin:</strong> {{ $prospect->besoin }}</li>
                 </div>
             </div>
+            <a href="{{ route('clients.create', ['prospect' => $prospect]) }}"class="detailsButtons" id="prospectToClient">Convertir en client</a>
         </ul>
         <div class="messageForm" style="display: none;">
             <form action="{{route('messages.store')}}" method="POST">

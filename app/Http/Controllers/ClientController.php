@@ -21,27 +21,10 @@ class ClientController extends Controller
         ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    // public function create($prospectId)
-    // {
-    //     $prospect = Prospect::find($prospectId);
-
-    //     $delaiPaiementDefault = 30;
-
-    //     return view('clients.create', compact('prospect', 'delaiPaiementDefault'));
-    // }
-
-    public function create()
+    public function create(Prospect $prospect)
 {
-    $prospects = Prospect::all();
-    
-    $delaiPaiementDefault = 30;
-
     return view('clients.create', [
-        'prospects' => $prospects,
-         'delaiPaiementDefault' => $delaiPaiementDefault
+        'prospect' => $prospect
         ]);
 }
 
@@ -50,14 +33,23 @@ class ClientController extends Controller
      */
     public function store(Request $request)
     {
-        $validated = $request->validate([
-            'adresse' => 'required|string|min:5|max:255',
-            'delai_paiement' => 'required|numeric|default:30'
-        ]);
-        $client = Client::create($validated);
+        $prospect = Prospect::findOrFail($request->prospect_id);
+        $client = new Client();
+        $client->nom = $request -> nom;
+        $client->prenom = $request -> prenom;
+        $client->tel = $request -> tel;
+        $client->email = $request -> email;
+        $client->dateNaissance = $request -> dateNaissance;
+        $client->besoin = $request -> besoin;
+        $client->adresse = $request -> adresse; 
+        $client->delaisPaiement = $request -> delaisPaiement; 
+        $client->prospect_id = $prospect -> id; 
+        $client->save();
 
-        return view ('clients.store',[
-            'client' => $client 
+        $clients = Client::all();
+
+        return view ('clients.index', [
+            'clients' => $clients
         ]);
     }
 

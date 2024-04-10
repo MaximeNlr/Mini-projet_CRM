@@ -1,4 +1,4 @@
-.formMessages {
+.formMessagesVentes {
     max-width: 600px;
     margin: 0 auto;
     padding: 20px;
@@ -8,12 +8,17 @@
     margin-top: 50px;
 }
 
-.formMessages label {
-    font-weight: bold;
+.formMessagesVentes h2 {
+    text-align: center;
+    margin-bottom: 30px;
 }
 
-.formMessages select,
-.formMessages textarea {
+.formMessagesVentes input[type="submit"] {
+    display: block;
+    margin: auto;
+}
+
+.formMessagesVentes input {
     width: 100%;
     padding: 8px;
     margin-top: 5px;
@@ -23,8 +28,29 @@
     box-sizing: border-box;
 }
 
-.formMessages textarea {
+#description {
+    height: 150px;
+}
+
+
+.formMessagesVentes label {
+    font-weight: bold;
+}
+
+.formMessagesVentes select,
+.formMessagesVentes textarea {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    margin-bottom: 15px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+.formMessagesVentes textarea {
     height: 200px;
+    resize: none;
 }
 
 .error-message {

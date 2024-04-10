@@ -20,7 +20,11 @@
             <div class="headerContainer">
                 <a href="{{route('clients.index')}}">Clients</a>
                 <a href="{{route('prospects.index')}}">Prospects</a>
+                <a href="{{route('ventes.index')}}">Ventes</a>
                 <a href ="{{route('messages.index')}}">Messages</a>
+                <div class="authContainer">
+                    <a href="{{route('deconnexion')}}">Déconnexion</a>
+                </div>
             </div>
         </nav>
     </header>

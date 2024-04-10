@@ -1,0 +1,113 @@
+* {
+    margin: 0;
+}
+body {
+    background-color: #F2F3F5;
+}
+section {
+    display: flex;
+    justify-content: center;
+    
+}
+.containerLogin {
+    border: solid 2px;
+    border-radius: 30px;
+    width: 40%;
+    height: 600px;
+    position: relative;
+    top: 70px;
+    background-color: #10223C;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+}
+
+h1 {
+    color: white;
+    text-align: center;
+    font-size: 250%;
+    padding-top: 60px;
+}
+
+.divLogo img {
+    width: 30%;
+    margin: auto;
+}
+
+.btnConnexion {
+    background-color: #5791EB;
+    color: white;
+    border-radius: 5px;
+    border: #5791EB;
+    padding: 8px;
+    width: 140px;
+    font-weight: bold;
+    height: 40px;
+}
+
+.containerBtnConnexion {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    padding-top: 25px;
+}
+
+.btnConnexion:hover {
+    background-color: #0056b3;
+}
+
+.containerRegister {
+    border: solid 2px;
+    border-radius: 30px;
+    width: 40%;
+    background-color: #10223C;
+    box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;
+    margin: 60px;
+}
+
+.containerInputRegister {
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    margin: 50 auto;
+}
+
+.containerInputLogin {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.inputs input {
+    height: 50px;
+    width: 70%;
+}
+
+.errorsInput {
+    color: white;
+    margin-left: 60px;
+}
+
+.btnRegister {
+    background-color: #5791EB;
+    color: white;
+    border-radius: 5px;
+    border: #5791EB;
+    padding: 8px;
+    width: 140px;
+    font-weight: bold;
+    height: 40px;
+    
+}
+
+.containerBtnRegister {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    justify-content: center;
+    padding-top: 10px;
+    margin-top: 20px;
+}
+
+.btnRegister:hover {
+    background-color: #0056b3;
+}

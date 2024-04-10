@@ -4,9 +4,36 @@
 
 @section('content')
 <h1>Création d'un Client</h1>
-    <form action=" {{ route('clients.store') }}" method="POST">
+    <form class="formMessagesVentes" action=" {{ route('clients.store') }}" method="POST">
         @csrf
-
+        <div class="formContainer">
+            <div class="right">
+                <input type="text" name="nom" value="{{ $prospect->nom }}" readonly />
+                    @if($errors->has('nom'))
+                        <p>{{$errors->first('nom')}}</p>
+                    @endif
+                <input type="text" name="prenom" value="{{ $prospect->prenom }}" placeholder="Prénom" readonly />
+                    @if($errors->has('prenom'))
+                        <p>{{$errors->first('prenom')}}</p>
+                    @endif
+                <input type="email" name="email" value="{{ $prospect->email }}" placeholder="Email" readonly />
+                    @if($errors->has('email'))
+                        <p>{{$errors->first('email')}}</p>
+                    @endif
+            </div>
+            <div class="left">
+                <input type="tel" name="tel" value="{{ $prospect->tel }}" readonly />
+                    @if($errors->has('tel'))
+                        <p>{{$errors->first('tel')}}</p>
+                    @endif
+                <input type="date" name="dateNaissance" value="{{ $prospect->dateNaissance }}" readonly />
+                    @if($errors->has('dateNaissance'))
+                        <p>{{$errors->first('dateNaissance')}}</p>
+                    @endif
+                <input type="text" name="besoin" value="{{ $prospect->besoin }}" readonly />
+                <input type="hidden" name="prospect_id" value="{{ $prospect->id }}">
+            </div>
+        </div>
         <div class="form-group">
             <label for="adresse">Adresse :</label>
             <input type="text" name="adresse" id="adresse" class="form-control">
@@ -21,16 +48,6 @@
                 <p>{{ $errors->first('delaisPaiement')}}</p>
             @endif
         </div>
-
-        <label for="prospect_id">Email du prospect contacté : </label>
-        <select name="prospect_id" id="prospect_id">
-            @foreach ($prospects as $prospect)
-            <option value="{{$prospect->id}}">{{$prospect->email}}</option>
-            @endforEach
-            @if ($errors->has('prospect_id'))
-                <p>{{ $errors->first('prospect_id')}}</p>
-            @endif
-        </select>
         <button type="submit" class="btn-primary">Créer</button>
     </form>
 
