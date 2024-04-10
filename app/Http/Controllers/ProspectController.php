@@ -94,7 +94,7 @@ class ProspectController extends Controller
         $prospect = Prospect::findOrFail($id);
         $prospect->message()->delete();
         $prospect->delete();
-        $prospect->delete();
+        
         
         $prospects = Prospect::all();
         return view ('prospects.index', [

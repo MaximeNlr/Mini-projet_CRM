@@ -14,12 +14,13 @@ Route::resource('/ventes', VenteController::class);
 Route::resource('/messages', MessageController::class);
 Route::resource('/clients', ClientController::class);
 
-Route::get('/login', [AuthController::class, 'login'])->name('ligin');
+Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'authenticate'])->name('auth');
 Route::get('/register', [AuthController::class, 'register'])->name('register');
 Route::post('/register', [AuthController::class, 'store'])->name('user.store');
 
-Route::get('/inscription', function (Request $request){
-    
+Route::get('/inscription', function (Request $request) {
+    dd($request);
+    echo "Register Page";
 });
 

@@ -5,7 +5,7 @@
     <div class="search-bar">
         <input type="text" placeholder="Rechercher par Nom ..." class="search-input" oninput="searchClient()">
     </div>
-    <a href="{{ route('messages.create')}}"><input type="button" value="+ Nouveau" class="btnNewPost"></a>
+    <a href="{{ route('clients.create')}}"><input type="button" value="+ Nouveau" class="btnNewPost"></a>
 </nav>
 <h1>Liste Des Clients</h1>
 <div class="containerBtn">

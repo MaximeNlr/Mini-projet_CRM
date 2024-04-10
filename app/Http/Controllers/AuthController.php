@@ -48,6 +48,17 @@ class AuthController extends Controller
             return redirect()->route('ventes.index');
         } else {
             return redirect()->route('login')->with('error', 'utilisateur inconnu');
-        }
+        }   
+    }
+
+    public function deconnexion(Request $request)
+    { 
+        Auth::logout();
+ 
+        $request->session()->invalidate();
+     
+        $request->session()->regenerateToken();
+
+        return redirect('/login');
     }
 }

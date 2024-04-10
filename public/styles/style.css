@@ -162,15 +162,15 @@ nav {
 }
 
 .search-input {
-    width: 40%; 
+    width: 20%; 
     padding: 8px; 
     border-radius: 5px;
     background-color: #ffffff; 
 }
 
 .btnNewPost {
-    background-color: #ffffff; /* Couleur de fond du bouton */
-    color: #10223C; /* Couleur du texte du bouton */
+    background-color: #ffffff; 
+    color: #10223C;
     border: none;
     padding: 10px 20px;
     border-radius: 5px;

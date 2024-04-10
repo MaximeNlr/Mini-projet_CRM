@@ -22,6 +22,9 @@
                 <a href="{{route('prospects.index')}}">Prospects</a>
                 <a href ="{{route('messages.index')}}">Messages</a>
             </div>
+            <div class="headerContainer">
+                <a href ="{{route('login')}}">Connexion</a>
+            </div>
         </nav>
     </header>
         @yield('newProspect')
