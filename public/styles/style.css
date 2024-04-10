@@ -3,7 +3,7 @@
     font-optical-sizing: auto;
     font-weight: 400;
     font-style: normal;
-     margin: 0;
+    margin: 0;
 }
 
 body {
@@ -14,7 +14,6 @@ header {
     display: flex;
     justify-content: space-between;
     background-color: #10223C;
-    width: 100%;
     height: 70px;
 }
 
@@ -24,9 +23,7 @@ header img {
 
 .headerContainer {
     display: flex;
-    justify-content: center;
     gap: 50px;
-    margin-right: 50px;
 }
 
 .headerContainer a {
@@ -46,6 +43,12 @@ header img {
     background-color: #0056b3;
 }
 
+.authContainer {
+    display: flex;
+    margin-left: 250px;
+    margin-right: 20px;
+}
+
 .containerBtn {
     margin-bottom: 20px;
 }
@@ -53,7 +56,7 @@ header img {
 .btnNewPost {
     background-color: #007bff;
     color: white;
-    padding: 5px 12px;
+    padding: 8px 15px;
     border: none;
     border-radius: 4px;
     cursor: pointer;

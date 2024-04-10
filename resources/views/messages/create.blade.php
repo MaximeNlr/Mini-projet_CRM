@@ -1,10 +1,11 @@
 @extends('layouts.app')
 
 @section('content')
-<form class="formMessages" action="{{ route('messages.store') }}" method="POST">
+<form class="formMessagesVentes" id="formVentes" action="{{ route('messages.store') }}" method="POST">
     @csrf
+    <h2>Contacter le prospect</h2>
     <div>
-        <label for="prospect_id">Email du prospect contacté : </label>
+        <label for="prospect_id">Email du prospect a contacter : </label>
         <select name="prospect_id" id="prospect_id">
             @foreach ($prospects as $prospect)
             <option value="{{$prospect->id}}">{{$prospect->email}}</option>
@@ -35,7 +36,7 @@
             <p>{{ $errors->first('contenu')}}</p>
         @endif
     </div>
-    <input type="submit" value="Sauvegarder" class="btn">
+    <input type="submit" value="Envoyer" class="btn">
 </form>
     
 @endsection

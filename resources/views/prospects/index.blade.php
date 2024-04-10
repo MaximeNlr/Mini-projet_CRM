@@ -3,12 +3,14 @@
 @endsection
 @section('content')
 <div class="containerBtn">
-    <button id="toggleForm">Ajouter un nouveau prospect</button>
+    <button id="toggleForm">+ Nouveau prospect</button>
 </div>
     <div class="prospectForm" style="display: none;">
         <form method="post" action="{{route('prospects.store')}}">
             @csrf
+            <h2>Ajout d'un prospect</h2>
             <div class="formContainer">
+                <div class="right">
                     <input type="text" name="nom" value="{{old ('nom') }}" placeholder="Nom" required />
                         @if($errors->has('nom'))
                             <p>{{$errors->first('nom')}}</p>
@@ -21,6 +23,8 @@
                         @if($errors->has('email'))
                             <p>{{$errors->first('email')}}</p>
                         @endif
+                </div>
+                <div class="left">
                     <input type="tel" name="tel" value="{{old ('tel') }}" placeholder="Téléphone" required />
                         @if($errors->has('tel'))
                             <p>{{$errors->first('tel')}}</p>
@@ -34,10 +38,11 @@
                         <option value="Vehicule d'occasion">Vehicule d'occasion</option>
                         <option value="Vehicule neuf">Vehicule neuf</option>
                         <option value="Vehicule de luxe">Vehicule de luxe</option>
-                        <option value="Vehicule utilitaire">Vehicule</option>
+                        <option value="Vehicule utilitaire">Vehicule utilitaire</option>
                     </select>
-                <input type="submit" id="validateButton" value="valider"/>
+                </div>
             </div>
+            <input type="submit" id="validateButton" value="valider"/>
         </form>
     </div>
     <table id="prospectsTable">
@@ -60,7 +65,7 @@
                 <td>{{ $prospect->besoin }}</td>
                 <td>
                     <div class="actionTd">
-                        <a href="{{route('prospects.show', ['prospect' => $prospect->id ])}}" class="btn">Detail</a>
+                        <a href="{{route('prospects.show', ['prospect' => $prospect->id ])}}" class="btn">detail</a>
                         <form method="POST"  action="{{ route('prospects.destroy', ['prospect' => $prospect->id]) }}">
                             @csrf
                             @method('DELETE')

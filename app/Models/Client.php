@@ -13,4 +13,14 @@ class Client extends Model
         'id',
         'adresse'
     ];
+
+    protected $fillable = [
+        
+        'prospect_id',
+    ];
+
+    public function prospect()
+    {
+        return $this->belongsTo(Prospect::class);
+    }
 }
