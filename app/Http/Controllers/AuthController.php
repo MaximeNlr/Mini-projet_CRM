@@ -45,9 +45,9 @@ class AuthController extends Controller
         ]);
 
         if (Auth::attempt($validate)) {
-            return redirect()->route('ventes.index');
+            return redirect()->route('prospects.index');
         } else {
-            return redirect()->route('login')->with('error', 'utilisateur inconnu');
+            return redirect()->route('register')->with('error', 'utilisateur inconnu');
         }
     }
 
@@ -59,6 +59,6 @@ class AuthController extends Controller
      
         $request->session()->regenerateToken();
 
-        return redirect('/login');
+        return redirect('/register');
     }
 }

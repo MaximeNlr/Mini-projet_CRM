@@ -50,7 +50,10 @@ header img {
 }
 
 .containerBtn {
-    margin-bottom: 20px;
+    display: flex;
+    flex-direction: row-reverse;
+    margin: 30px 0px 30px;
+    width: 90%;
 }
 
 .btnNewPost {
@@ -62,10 +65,20 @@ header img {
     cursor: pointer;
     font-size: 16px;
     text-decoration: none;
+
 }
 
 .btnNewPost:hover {
     background-color: #0056b3;
+}
+
+.search-bar {
+    margin-right: 20px;
+}
+
+.search-bar input {
+    height: 28px;
+    width: 200px;
 }
 
 .containerTableBtn {
@@ -90,6 +103,8 @@ header img {
     display: flex;
     align-items: center;
     gap: 5px;
+    width: 170px;
+    font-size: 0.9rem;
 }
 
 .containerTable th,
@@ -110,11 +125,6 @@ header img {
     background-color: #ddd;
 }
 
-.tdNom,
-.tdPrenom {
-    font-weight: bold;
-}
-
 .btn {
     background-color: #007bff;
     color: white;
@@ -132,6 +142,7 @@ header img {
 
 #deleteButton {
     background-color: #f44336;
+    font-size: 0.8rem;
 }
 
 #deleteButton:hover {

@@ -24,4 +24,28 @@ document.addEventListener('DOMContentLoaded', function () {
             messageForm.style.display = messageForm.style.display === 'none' ? 'block' : 'none';
         })
 })
+
+function searchClient() {
+    var searchText = document.querySelector('.search-input').value.toLowerCase();
+    
+    var rows = document.querySelectorAll('.editableRow');
+    
+    rows.forEach(function(row) {
+        var cells = row.getElementsByTagName("td");
+        var found = false;
+        for (var i = 0; i < cells.length; i++) {
+            var cellText = cells[i].innerText.toLowerCase();
+            if (cellText.indexOf(searchText) > -1) {
+                found = true;
+                break;
+            }
+        }
+        if (found) {
+            row.style.display = "";
+        } else {
+            row.style.display = "none";
+        }
+    });
+}
+
    

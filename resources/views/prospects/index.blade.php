@@ -3,7 +3,10 @@
 @endsection
 @section('content')
 <div class="containerBtn">
-    <button id="toggleForm">+ Nouveau prospect</button>
+    <button id="toggleForm">+ Prospect</button>
+    <div class="search-bar">
+        <input type="text" placeholder="Rechercher" class="search-input" oninput="searchClient()">
+    </div>
 </div>
     <div class="prospectForm" style="display: none;">
         <form method="post" action="{{route('prospects.store')}}">
@@ -45,7 +48,7 @@
             <input type="submit" id="validateButton" value="valider"/>
         </form>
     </div>
-    <table id="prospectsTable">
+    <table id="prospectsTable" class="allTables">
         <tr>
             <th>Nom</th>
             <th>Prénom</th>
@@ -65,7 +68,7 @@
                 <td>{{ $prospect->besoin }}</td>
                 <td>
                     <div class="actionTd">
-                        <a href="{{route('prospects.show', ['prospect' => $prospect->id ])}}" class="btn">detail</a>
+                        <a href="{{route('prospects.show', ['prospect' => $prospect->id ])}}" class="btn">détails</a>
                         <form method="POST"  action="{{ route('prospects.destroy', ['prospect' => $prospect->id]) }}">
                             @csrf
                             @method('DELETE')
