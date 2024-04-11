@@ -27,9 +27,3 @@ Route::get('/login', [AuthController::class, 'login'])->name('login');
 Route::post('/login', [AuthController::class, 'authenticate'])->name('auth');
 Route::get('/register', [AuthController::class, 'create'])->name('register.create');
 Route::post('/register', [AuthController::class, 'store'])->name('user.store');
-
-
-Route::get('/inscription', function (Request $request) {
-    dd($request);
-    echo "Register Page";
-});

@@ -53,6 +53,12 @@
     resize: none;
 }
 
+#clientValidateButton {
+    width: 40%;
+    display: block;
+    margin: auto;
+}
+
 .error-message {
     color: red;
     font-size: 14px;

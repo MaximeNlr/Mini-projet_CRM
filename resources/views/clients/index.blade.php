@@ -2,7 +2,10 @@
 
 @section('content')
     <div class="containerBtn">
-        <button id="toggleForm">Ajouter un nouveau client</button>
+        <button id="toggleForm" style="display: hidden;">Ajouter un nouveau client</button>
+        <div class="search-bar">
+            <input type="text" placeholder="Rechercher" class="search-input" oninput="searchClient()">
+        </div>
     </div>
     
     </div>
@@ -16,10 +19,10 @@
                             <th>Téléphone</th>
                             <th>Date/Heure</th>
                             <th>Délais de paiement</th>
-                            <th>Action</th>
+                            <th id="actionTh">Action</th>
                         </tr>
                         @foreach($clients as $client)
-                        <tr>
+                        <tr class="editableRow">
                             <td><strong>{{$client->nom}}</strong></td>
                             <td><strong>{{$client->prenom}}</strong></td>
                             <td>{{$client->email}}</td>
@@ -29,7 +32,7 @@
                             <td>{{$client->delaisPaiement}}</td>
                             <td>
                                 <div class="actionTd">
-                                    <a href="{{route('clients.show', ['client' => $client->id ])}}" class="btn">Detail</a>
+                                    <a href="{{route('clients.show', ['client' => $client->id ])}}" class="btn">détails</a>
                                     <form method="POST"  action="{{ route('clients.destroy', ['client' => $client->id]) }}">
                                         @csrf
                                         @method('DELETE')

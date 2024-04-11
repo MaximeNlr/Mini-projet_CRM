@@ -1,9 +1,3 @@
-.containerBtn {
-    display: flex;
-    flex-direction: row-reverse;
-    margin: 30px;
-}
-
 #toggleForm {
     background-color: #007bff;
     color: white;

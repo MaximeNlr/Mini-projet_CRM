@@ -3,7 +3,10 @@
 
 @section('content')
 <div class="containerBtn">
-    <a href="{{ route('messages.create')}}" class="btnNewPost">+ Nouveau message</a>
+    <a href="{{ route('messages.create')}}" class="btnNewPost">+ Message</a>
+    <div class="search-bar">
+        <input type="text" placeholder="Rechercher" class="search-input" oninput="searchClient()">
+    </div>
 </div>
     <section class="containerTableBtn">
         <div class="containerTable">
@@ -18,7 +21,7 @@
                     <th id="actionTh">Action</th>
                 </tr>
                 @foreach($messages as $message)
-                <tr>
+                <tr class="editableRow">
                     <td>{{$message->created_at}}</td>
                     <td class="tdNom"><strong>{{$message->prospect->nom}}</strong></td>
                     <td class="tdPrenom"><strong>{{$message->prospect->prenom}}</strong></td>
@@ -27,7 +30,7 @@
                     <td>{{$message->typeCommunication}}</td>
                     <td>
                         <div class="actionTd">
-                            <a href="{{ route('messages.show', ['message' => $message->id]) }}" class="btn">detail</a>
+                            <a href="{{ route('messages.show', ['message' => $message->id]) }}" class="btn">détails</a>
                             <form action="{{ route('messages.destroy', ['message' => $message->id])}}" method='POST'>
                             @csrf
                             @method('DELETE') 
@@ -38,4 +41,7 @@
                 @endforEach
             </table>
         </div>
+@endsection
+@section('scripts')
+    <script src="{{ asset('js/script.js') }}"></script>
 @endsection

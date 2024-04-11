@@ -3,9 +3,9 @@
 @section('title', 'Client')
 
 @section('content')
-<h1>Création d'un Client</h1>
     <form class="formMessagesVentes" action=" {{ route('clients.store') }}" method="POST">
         @csrf
+        <h2>Convertion d'un prospect</h2>
         <div class="formContainer">
             <div class="right">
                 <input type="text" name="nom" value="{{ $prospect->nom }}" readonly />
@@ -48,7 +48,7 @@
                 <p>{{ $errors->first('delaisPaiement')}}</p>
             @endif
         </div>
-        <button type="submit" class="btn-primary">Créer</button>
+        <button type="submit" class="btn" id="clientValidateButton">Convertir</button>
     </form>
 
 @endsection
